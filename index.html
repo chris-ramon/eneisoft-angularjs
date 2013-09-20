@@ -2,13 +2,47 @@
     <head>
         <meta charset="utf-8">
         <link rel="icon" href="favicon.ico" type="image/x-icon">
+        <link rel="stylesheet" href="main.css">
+        <link rel="stylesheet" href="css/bootstrap.css">
+    </head>
+    <body ng-controller="myController">
+        <h1>Directives</h1>
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <input
+                    ng-model="text"
+                    class="col-md-12">
+                <br><br>
+                <zippy text="text"></zippy>
+                <zippy text="text">
+                    <div>Contenido desde el servidor !!!</div>
+                </zippy>
+                <zippy text="texto"></zippy>
+                <zippy text="texto" evento="evento()"></zippy>
+            </div>
+            <div class="col-md-4"></div>
+        </div>
+
+        <script type=text/ng-template id='zippyTemplate.html'>
+            <div class="well">
+                <i ng-switch on="zippyClosed">
+                    <i
+                        ng-switch-when="true"
+                        ng-click="toggleZippy()"
+                        class="glyphicon glyphicon-chevron-right"></i>
+                    <i
+                        ng-switch-when="false"
+                        ng-click="toggleZippy()"
+                        class="glyphicon glyphicon-chevron-down"></i>
+                </i>
+                <div ng-hide="zippyClosed">
+                    <span ng-transclude></span>
+                    {{ text }}
+                </div>
+            </div>
+        </script>
         <script src="angular.js"></script>
         <script src="app.js"></script>
-        <link rel="stylesheet" href="main.css">
-    </head>
-    <body>
-        <h3>Directives</h3>
-        <mi-directiva></mi-directiva>
-        <div mi-directiva></div>
     </body>
 </html>

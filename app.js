@@ -1,8 +1,24 @@
 var myApp = angular.module('myApp', []);
 
-myApp.directive('miDirectiva', function() {
+myApp.controller('myController', function($scope) {
+    $scope.texto = "hi from eneisoft!";
+    $scope.evento = function() {
+      alert('cool function !!!');
+    }
+});
+
+myApp.directive('zippy', function() {
   return {
       restrict: 'AE',
-      template: '<p>Esto es una directiva y un componente.</p>'
+      transclude: true,
+      scope: {text: '=', evento: '&'},
+      templateUrl: 'zippyTemplate.html',
+      link: function(scope) {
+          scope.zippyClosed = true;
+          scope.toggleZippy = function() {
+              scope.zippyClosed = !scope.zippyClosed;
+              scope.evento();
+          }
+      }
   }
 });
