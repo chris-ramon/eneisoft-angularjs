@@ -7,7 +7,6 @@ myApp.controller('myController', function($scope) {
 myApp.directive('zippy', function() {
   return {
       restrict: 'AE',
-      transclude: true,
       scope: {text: '='},
       templateUrl: 'zippyTemplate.html',
       link: function(scope) {
