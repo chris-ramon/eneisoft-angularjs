@@ -9,17 +9,17 @@
         <h1>Directives</h1>
         <div class="row">
             <div class="col-md-4"></div>
-            <div class="col-md-4">
+            <div id="zippy-wrapper" class="col-md-4">
                 <input
                     ng-model="text"
                     class="col-md-12">
                 <br><br>
+                <button
+                    zippier
+                    class="btn btn-success">
+                    Append Zippy using $compile</button>
+                <br><br>
                 <zippy text="text"></zippy>
-                <zippy text="text">
-                    <div>Contenido desde el servidor !!!</div>
-                </zippy>
-                <zippy text="texto"></zippy>
-                <zippy text="texto" evento="evento()"></zippy>
             </div>
             <div class="col-md-4"></div>
         </div>
@@ -42,6 +42,7 @@
                 </div>
             </div>
         </script>
+        <script src="jquery.min.js"></script>
         <script src="angular.js"></script>
         <script src="app.js"></script>
     </body>

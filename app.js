@@ -22,3 +22,21 @@ myApp.directive('zippy', function() {
       }
   }
 });
+
+myApp.directive('zippier', function($rootScope, $compile) {
+  return {
+      restrict: 'A',
+      link: function(scope, elm) {
+          elm.bind('click', function() {
+              var zippy = "<zippy text='text'></zippy>",
+                  zippyScope = $rootScope.$new();
+              zippyScope.text = "from compiler !!!";
+              var newZippy = $compile(zippy)(zippyScope);
+              scope.$apply(function() {
+                  $('#zippy-wrapper').append(newZippy);
+              })
+
+          });
+      }
+  }
+});
