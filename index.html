@@ -15,11 +15,6 @@
                     class="col-md-12">
                 <br><br>
                 <zippy text="text"></zippy>
-                <zippy text="text">
-                    <div>Contenido desde el servidor !!!</div>
-                </zippy>
-                <zippy text="texto"></zippy>
-                <zippy text="texto" evento="evento()"></zippy>
             </div>
             <div class="col-md-4"></div>
         </div>
@@ -37,9 +32,13 @@
                         class="glyphicon glyphicon-chevron-down"></i>
                 </i>
                 <div ng-hide="zippyClosed">
-                    <span ng-transclude></span>
                     {{ text }}
                 </div>
+                <br><br>
+                <button
+                        ng-click="writeWithParse()"
+                        class="btn btn-primary">
+                    Escribir con $parse</button>
             </div>
         </script>
         <script src="angular.js"></script>
